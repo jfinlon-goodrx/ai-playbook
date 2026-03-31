@@ -1,0 +1,77 @@
+# .NET API Project — Cursor Rules
+
+## Tech Stack
+- .NET 10 / C# 13 / ASP.NET Core
+- Entity Framework Core with MSSQL
+- xUnit + Moq + FluentAssertions for testing
+- Serilog for structured logging
+- FluentValidation for input validation
+- MediatR for CQRS (if used — remove if not)
+- AutoMapper for DTO mapping (if used — remove if not)
+
+## Architecture
+- Clean Architecture: API → Application → Domain → Infrastructure
+- Controllers handle HTTP only (model binding, status codes, response mapping)
+- Business logic lives in services or MediatR handlers
+- Repository pattern for data access
+- Dependency injection for all dependencies
+
+## Code Standards
+- File-scoped namespaces: `namespace ProjectName.Layer;`
+- Nullable reference types: always enabled
+- Async/await: always. Never `.Result`, `.Wait()`, or `.GetAwaiter().GetResult()`
+- CancellationToken: accept on all async methods
+- Private fields: underscore prefix (_logger, _repository, _service)
+- Constants: PascalCase
+- Interfaces: prefix with I (IUserService, IRepository<T>)
+- DTOs: suffix with Dto (UserResponseDto, CreateUserRequestDto)
+
+## Error Handling
+- Use Result<T> pattern for business logic outcomes (not exceptions)
+- Use ProblemDetails for HTTP error responses
+- Global exception middleware for unhandled exceptions
+- Never swallow exceptions silently
+- Log errors before rethrowing; use `throw;` to preserve stack trace
+
+## Security & Compliance (HIPAA)
+- NEVER log PHI (patient names, DOBs, SSNs, prescription details, drug names)
+- NEVER include PHI in error messages or exception details
+- NEVER put PHI in URLs or query parameters
+- All endpoints require [Authorize] unless explicitly [AllowAnonymous]
+- Parameterize ALL database queries — no string concatenation for SQL
+- Audit log all data mutations (who, what, when, from where)
+- Validate all external inputs at the API boundary
+- Use data annotations or FluentValidation on all request DTOs
+
+## Database
+- Use EF Core Fluent API for configuration (not data annotations on entities)
+- Migrations: descriptive names (20260331_AddPrescriptionTransfers)
+- Always include Down() method in migrations
+- Use DateTimeOffset (not DateTime) for all timestamps
+- Use Guid for primary keys (newsequentialid() default in SQL)
+
+## Testing
+- Test naming: MethodName_Scenario_ExpectedResult
+- One assertion concept per test (multiple Assert calls for the same concept are fine)
+- Use Moq for mocking dependencies
+- Use builder patterns for test data
+- Do NOT use real PHI in test data — use obviously fake data
+- Unit tests for service/handler logic
+- Integration tests for API endpoints (using WebApplicationFactory)
+
+## Response Format
+- Successful reads: 200 OK
+- Successful creates: 201 Created with Location header
+- Successful updates: 200 OK or 204 No Content
+- Successful deletes: 204 No Content
+- Validation errors: 400 Bad Request with ProblemDetails
+- Not found: 404 Not Found
+- Unauthorized: 401 Unauthorized
+- Forbidden: 403 Forbidden
+
+## When Generating Code
+- Match the patterns in existing files — consistency matters more than "best practice"
+- Include XML doc comments on all public classes, methods, and properties
+- Register new services in DI (check existing registration patterns)
+- Create both interface and implementation for new services
+- Include unit tests for new service methods

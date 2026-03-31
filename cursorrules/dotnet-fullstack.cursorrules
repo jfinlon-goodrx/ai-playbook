@@ -1,0 +1,61 @@
+# .NET Full-Stack Project — Cursor Rules
+
+## Tech Stack
+- Backend: .NET 10 / C# 13 / ASP.NET Core
+- Frontend: Blazor Server (or React/TypeScript — adjust as needed)
+- Database: Entity Framework Core with MSSQL
+- Testing: xUnit + Moq (backend), bUnit (Blazor) or React Testing Library
+- Logging: Serilog (structured JSON)
+- Validation: FluentValidation (backend), DataAnnotations (Blazor forms)
+
+## Architecture
+- Backend: Clean Architecture (API → Application → Domain → Infrastructure)
+- Frontend: Component-based with service injection
+- API: RESTful with OpenAI-compatible versioning (/api/v1/...)
+- Communication: Frontend calls API via HttpClient / typed HTTP clients
+- State: Server-side session or client-side state management (specify which)
+
+## Backend Standards
+- File-scoped namespaces
+- Nullable reference types enabled
+- Async/await everywhere
+- CancellationToken on all async methods
+- Result<T> pattern for business logic errors
+- ProblemDetails for HTTP error responses
+- Parameterized queries only
+
+## Frontend Standards (Blazor)
+- Components in Pages/ (routable) and Shared/ (reusable)
+- Use @inject for service dependencies
+- Implement IDisposable on components that subscribe to events
+- Loading states: show spinner during async operations
+- Error states: display user-friendly messages, never stack traces
+- Accessibility: aria labels, keyboard navigation, semantic HTML
+
+## Frontend Standards (React — if applicable)
+- TypeScript strict mode (no `any`)
+- Functional components with hooks
+- Custom hooks for API calls and shared logic
+- Error boundaries for graceful failure handling
+- Responsive design (mobile-first)
+
+## Security & Compliance (HIPAA)
+- NEVER log PHI (patient names, DOBs, SSNs, prescription details)
+- NEVER display full SSN on screen (mask as ***-**-1234)
+- NEVER store PHI in browser localStorage or sessionStorage
+- All API calls require authentication tokens
+- Frontend must clear sensitive data from memory on component disposal/navigation
+- Forms collecting PHI should indicate "Protected Health Information" visually
+- Audit log all data mutations on the backend
+
+## Testing
+- Backend: unit tests for services, integration tests for API endpoints
+- Frontend: component render tests, interaction tests
+- Test naming: MethodName_Scenario_ExpectedResult
+- No real PHI in test data
+
+## Cross-Layer Concerns
+- When modifying an API endpoint, update the corresponding frontend component
+- When adding a new entity, create: migration, repository, service, controller, DTOs, and frontend page
+- Validation rules must match between frontend and backend
+- Error messages from the API must be displayable in the frontend

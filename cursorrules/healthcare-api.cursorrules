@@ -1,0 +1,122 @@
+# Healthcare / Prescription Processing API — Cursor Rules
+
+## Tech Stack
+- .NET 10 / C# 13 / ASP.NET Core
+- Entity Framework Core with MSSQL
+- xUnit + Moq + FluentAssertions for testing
+- Serilog for structured JSON logging
+- FluentValidation for input validation
+- Azure Key Vault for secrets management
+
+## Architecture
+- Clean Architecture: API → Application → Domain → Infrastructure
+- CQRS where applicable (MediatR handlers for commands/queries)
+- Repository pattern for data access
+- Domain events for cross-cutting concerns (audit, notifications)
+
+## HIPAA Compliance — MANDATORY
+
+### Protected Health Information (PHI)
+PHI includes: patient names, dates of birth, Social Security numbers, addresses,
+phone numbers, email addresses, medical record numbers, health plan beneficiary numbers,
+prescription data (drug names, NDC codes, dosages, quantities, prescriber details),
+insurance/billing information, and any combination of data that could identify a patient.
+
+### Logging Rules
+- NEVER log PHI fields. Use structured logging with safe field selection:
+  ```csharp
+  // WRONG — logs PHI
+  _logger.LogInformation("Processing prescription for {PatientName}", patient.Name);
+
+  // RIGHT — logs only identifiers
+  _logger.LogInformation("Processing prescription {PrescriptionId} for patient {PatientId}", rx.Id, patient.Id);
+  ```
+- NEVER log request or response bodies that contain PHI
+- NEVER log SQL queries that contain PHI parameter values
+- Log correlation IDs, entity IDs, user IDs, timestamps, and action types
+
+### Error Handling
+- NEVER include PHI in exception messages:
+  ```csharp
+  // WRONG
+  throw new NotFoundException($"Patient {patient.Name} not found");
+
+  // RIGHT
+  throw new NotFoundException($"Patient {patientId} not found");
+  ```
+- ProblemDetails responses must not include PHI
+- Stack traces in production must not expose PHI
+
+### Data Access
+- Every query that returns patient data MUST verify the requesting user has authorization
+- Use the principle of minimum necessary — only select the PHI fields needed for the operation
+- NEVER use SELECT * on tables containing PHI
+- Parameterize ALL queries — no string concatenation, no interpolation in SQL
+
+### Audit Logging
+- Every create, update, or delete of a PHI-containing record MUST be audit logged
+- Audit log entries include: UserId, Action, EntityType, EntityId, Timestamp, IpAddress
+- Audit log entries must NOT include the PHI data itself (no before/after values of PHI fields)
+- Audit logs are append-only — no update or delete operations on audit records
+- Pattern:
+  ```csharp
+  await _auditLogger.LogAsync(new AuditEntry
+  {
+      UserId = currentUser.Id,
+      Action = "PrescriptionRefillApproved",
+      EntityType = "PrescriptionRefill",
+      EntityId = refill.Id.ToString(),
+      Timestamp = DateTimeOffset.UtcNow,
+      IpAddress = httpContext.Connection.RemoteIpAddress?.ToString()
+  });
+  ```
+
+### API Responses
+- Never return more PHI than the consumer needs
+- Create purpose-specific response DTOs (don't reuse the entity class)
+- Mask sensitive fields in list views:
+  - SSN → ***-**-1234 (last 4 only)
+  - DOB → show age, not full date (in list views; full date OK in detail views with authorization)
+  - Phone → (***) ***-5678 (last 4 only)
+
+### Data at Rest
+- PHI columns should be marked for column-level encryption or the database should use TDE
+- Note encryption requirements in entity configuration comments
+- Connection strings must use encrypted connections (Encrypt=True)
+
+## Code Standards
+- File-scoped namespaces
+- Nullable reference types enabled
+- Async/await everywhere — never .Result or .Wait()
+- CancellationToken on all async methods
+- Private fields with underscore prefix
+- XML doc comments on all public APIs
+
+## Security (OWASP)
+- All endpoints require [Authorize] unless explicitly [AllowAnonymous]
+- Use policy-based authorization for role and permission checks
+- Validate all inputs with FluentValidation
+- Rate limit authentication and search endpoints
+- CORS configured restrictively (never use wildcard *)
+- Anti-forgery tokens on state-changing operations
+- Security headers: HSTS, X-Content-Type-Options, X-Frame-Options
+
+## Testing
+- Test naming: MethodName_Scenario_ExpectedResult
+- Use Moq for mocking
+- Test data must use obviously fake data — NEVER real patient data:
+  - Patient names: "Test Patient Alpha", "Test Patient Beta"
+  - SSNs: "000-00-0001" (reserved test range)
+  - Drug names: "TestDrug-100mg", "PlaceboCaplet-50mg"
+  - NDC codes: "00000-0000-00" (reserved test range)
+  - Addresses: "123 Test Street, Testville, TS 00000"
+- Include security tests: unauthorized access, role violations, input injection
+- Include audit logging assertions in mutation tests
+
+## When Generating Code
+- Always include audit logging on data mutations
+- Always include authorization checks
+- Always create purpose-specific DTOs (never expose entities directly)
+- Always validate inputs
+- Always consider: "If this code is wrong, could PHI be exposed?"
+- Match existing patterns in the codebase for consistency
