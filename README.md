@@ -1,5 +1,7 @@
 # AI Development Playbook
 
+**Repository:** [github.com/jfinlon-goodrx/ai-playbook](https://github.com/jfinlon-goodrx/ai-playbook)
+
 A shared library of prompts, patterns, and guides for AI-assisted development. Built for a .NET/C#/MSSQL team using Cursor, GitHub, Azure DevOps, Jira, and Confluence.
 
 ## How to Use This
