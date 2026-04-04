@@ -390,4 +390,4 @@ One of the first bottlenecks in AI-assisted teams is review latency. Developers 
 
 ---
 
-*[Back to Curriculum Overview](00-Curriculum-Overview.md)*
+*[Back to 0 to 60 AI](README.md)*

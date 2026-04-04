@@ -351,7 +351,7 @@ You also need to ask:
 
 This is why AI-enabled products benefit from dedicated evaluation sets, regression suites, and rubric-based review in addition to normal automated tests.
 
-For a deeper treatment of this topic, continue to [AI Evaluation and Quality Engineering](../21-Appendix-AI-Evaluation-And-Quality/Appendix-AI-Evaluation-And-Quality.md).
+For a deeper treatment of this topic, continue to [AI Evaluation and Quality Engineering](21-AI-Evaluation-And-Quality.md).
 
 ---
 
@@ -379,4 +379,4 @@ AI-generated test cases can contain logical errors — asserting the wrong expec
 
 ---
 
-*[Back to Curriculum Overview](00-Curriculum-Overview.md)*
+*[Back to 0 to 60 AI](README.md)*

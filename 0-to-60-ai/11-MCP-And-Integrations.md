@@ -197,7 +197,7 @@ One of the biggest governance challenges is employees using unauthorized AI tool
 - **Least privilege, short-lived tokens, audit trails, and DLP scanning** are not optional extras -- they are foundational requirements for enterprise AI integration.
 - Organizations should adopt AI integrations through a **phased approach**: start with discovery and governance foundations before expanding access.
 
-If the system moves beyond simple read-only assistance, pair this module with the appendices on [AI Observability and Operations](../22-Appendix-AI-Observability-And-Operations/Appendix-AI-Observability-And-Operations.md) and [AI Security and Guardrails](../23-Appendix-AI-Security-And-Guardrails/Appendix-AI-Security-And-Guardrails.md). Tool access becomes much safer when teams can trace behavior and reason about prompt injection, tool abuse, and action gating explicitly.
+If the system moves beyond simple read-only assistance, pair this module with the appendices on [AI Observability and Operations](22-AI-Observability-And-Operations.md) and [AI Security and Guardrails](23-AI-Security-And-Guardrails.md). Tool access becomes much safer when teams can trace behavior and reason about prompt injection, tool abuse, and action gating explicitly.
 
 ---
 

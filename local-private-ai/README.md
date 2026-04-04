@@ -15,7 +15,7 @@ Use this page before the deeper implementation guides if you are deciding betwee
 - `Internal Knowledge and RAG/Corporate-Intranet-LLM.md`
 - `Internal Knowledge and RAG/MySty-RAG.md`
 
-Use these when the core problem is grounding AI in internal documentation, processes, or enterprise systems.
+Use these when the core problem is grounding AI in internal documentation, processes, or enterprise systems. `Corporate-Intranet-LLM.md` is the general enterprise pattern; `MySty-RAG.md` is a more stack-specific example.
 
 ### AI Onboarding Workflow Prompts
 

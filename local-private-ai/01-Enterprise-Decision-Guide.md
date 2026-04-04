@@ -50,7 +50,7 @@ Typical fit:
 Read next:
 
 - `Internal Knowledge and RAG/Corporate-Intranet-LLM.md`
-- `Internal Knowledge and RAG/MySty-RAG.md`
+- `Internal Knowledge and RAG/MySty-RAG.md` for a concrete stack-specific example
 
 ### 3. Fully Local or On-Prem Inference
 
@@ -111,6 +111,6 @@ Answer these before provisioning anything:
 
 - `README.md`
 - `Internal Knowledge and RAG/Corporate-Intranet-LLM.md`
-- `Internal Knowledge and RAG/MySty-RAG.md`
+- `Internal Knowledge and RAG/MySty-RAG.md` for a concrete stack-specific example
 - `Workflow Prompts/AI-Onboarding-Prompts.md`
 - `../0-to-60-ai/11-MCP-And-Integrations.md`

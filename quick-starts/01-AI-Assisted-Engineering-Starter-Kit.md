@@ -77,9 +77,9 @@ Choose one:
 
 Recommended sources:
 
-- `../prompts/by-task/pr-description.md`
-- `../prompts/by-task/test-generation.md`
-- `../prompts/by-task/security-audit.md`
+- `../prompts/by-task/review/pr-description.md`
+- `../prompts/by-task/qa/test-generation.md`
+- `../prompts/by-task/review/security-audit.md`
 - `../prompts/patterns/ai-testing-and-review-pipeline.md`
 
 ## Step 5: Teach The Team What Not To Do

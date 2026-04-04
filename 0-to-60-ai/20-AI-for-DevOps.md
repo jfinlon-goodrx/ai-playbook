@@ -555,7 +555,7 @@ You also need visibility into:
 
 That operational layer is close enough to DevOps work that it should not be treated as someone else’s problem. It is part of modern platform responsibility.
 
-For a deeper treatment, continue to [AI Observability and Operations](../22-Appendix-AI-Observability-And-Operations/Appendix-AI-Observability-And-Operations.md).
+For a deeper treatment, continue to [AI Observability and Operations](22-AI-Observability-And-Operations.md).
 
 ---
 
@@ -585,4 +585,4 @@ AI-generated Dockerfiles may reference base images that do not exist for your ta
 
 ---
 
-*[Back to Curriculum Overview](00-Curriculum-Overview.md)*
+*[Back to 0 to 60 AI](README.md)*

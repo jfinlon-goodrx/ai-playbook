@@ -56,6 +56,7 @@ ai-playbook/
 - `prompts/by-task/dotnet/` — implementation planning and .NET feature delivery.
 - `prompts/by-task/frontend/` — React and Blazor component work.
 - `prompts/by-task/atlassian/` — Jira and Confluence workflows.
+- `prompts/by-task/documentation/` — architecture docs, runbooks, and repo documentation prompts.
 - `prompts/by-task/qa/` — test planning, automation, and regression work.
 - `prompts/by-task/review/` — review, security, and PR-quality prompts.
 - `prompts/by-task/ci-cd/` — Azure Pipelines and GitHub Actions support.

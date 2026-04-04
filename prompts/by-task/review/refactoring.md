@@ -166,7 +166,7 @@ This lets us:
 ```
 
 ## Tips
-- **Never refactor without tests.** If the code has no tests, write tests first (see `test-generation.md`), then refactor.
+- **Never refactor without tests.** If the code has no tests, write tests first (see `../qa/test-generation.md`), then refactor.
 - Ask the AI to show you the plan before executing — "list the files you'll change and what you'll change in each" before accepting changes
 - For large refactors, do it in steps: "First, create the new classes. Then, move the methods. Then, update the callers." Review after each step.
 - Run tests after each step to catch issues early

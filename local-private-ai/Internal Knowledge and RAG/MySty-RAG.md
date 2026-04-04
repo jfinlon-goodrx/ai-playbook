@@ -1,6 +1,7 @@
 > Consolidated from Local-AI-Stack reorganization
+> Stack-specific example: useful as a concrete local RAG pattern, not as the default recommendation for every team.
 
-# MySty-RAG: Local Retrieval-Augmented Generation
+# MySty-RAG Example: Local Retrieval-Augmented Generation
 
 ## Overview
 

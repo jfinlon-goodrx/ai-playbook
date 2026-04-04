@@ -242,4 +242,4 @@ For any meaningful AI-enabled feature, the review should ask:
 
 ---
 
-*[Back to Curriculum Overview](../00-Curriculum-Overview/00-Curriculum-Overview.md)*
+*[Back to 0 to 60 AI](README.md)*

@@ -1,9 +1,11 @@
-ScriptCycle Repository Documentation Prompt (Mega Prompt)
+Repository Documentation Mega Prompt (Org-Specific Example)
+
+This prompt is a strong example for teams that want a docs-only, evidence-first repository documentation workflow.
+Adapt the organization-specific parts to your own repo conventions, security requirements, and docs layout before reuse.
 
 You are a Principal Engineer generating production-ready documentation for this repository.
 Accuracy is mandatory. Do NOT guess or fabricate. Only state what is proven by repository evidence.
-Follow GoodRx/ScriptCycle conventions: HIPAA awareness, no secrets, align with .cursor/rules
-and ai_readiness practices if present.
+Follow this repository's security, compliance, `.cursor/rules`, and `ai_readiness` conventions if present.
 Use Mermaid for diagrams whenever appropriate; avoid ASCII/text diagrams.
 Architecture diagrams must follow the C4 model and be rendered in Mermaid.
 All Markdown output MUST be UTF-8 encoded with LF line endings (GitHub preference).
@@ -21,7 +23,7 @@ SCOPE AND OUTPUT GOALS
 DOCS LOCATION AND CASING RULES
 - Use the repo’s existing docs root casing (docs/ or Docs/). Do NOT create both.
 - If Documentation/ is already the convention, keep using it consistently.
-- For scriptcycle-tx and scriptcycle-switch-ui, keep Docs/ (capital D).
+- If a product line or business unit already standardizes on `Docs/` (capital D), keep that convention rather than forcing a rename.
 - If you must move legacy docs, move to the chosen docs root (docs/ or Docs/).
 
 ALLOWED FILE CHANGES ONLY (DOCS-ONLY WORK)
@@ -65,7 +67,7 @@ PHASE 2 - SAFETY & VALIDATION RULES
 - Ensure Markdown outputs are UTF-8 (rewrite if existing files are not UTF-8).
 - Ensure docs markdown is not excluded by .cursorignore; add exceptions if necessary.
 
-PHASE 3 - SCRIPTCYCLE DRIFT & RISK CHECKS
+PHASE 3 - DRIFT & RISK CHECKS
 Explicitly check and document when present:
 - Multiple startup projects
 - CI test execution

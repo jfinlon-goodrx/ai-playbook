@@ -246,7 +246,7 @@ Good prompt hygiene means:
 
 For engineering work, “secure prompting” is often just disciplined context-setting. If a change touches authentication, permissions, financial rules, privacy, or regulated data, those constraints should be named directly in the prompt instead of assumed.
 
-That said, prompt hygiene is only the beginning. Once a system reads external content, retrieves documents, or uses tools, the security problem becomes larger than prompt wording alone. Prompt injection, indirect injection, and tool abuse require layered controls at the system level. See the appendix on [AI Security and Guardrails](../23-Appendix-AI-Security-And-Guardrails/Appendix-AI-Security-And-Guardrails.md).
+That said, prompt hygiene is only the beginning. Once a system reads external content, retrieves documents, or uses tools, the security problem becomes larger than prompt wording alone. Prompt injection, indirect injection, and tool abuse require layered controls at the system level. See the appendix on [AI Security and Guardrails](23-AI-Security-And-Guardrails.md).
 
 ---
 
@@ -328,4 +328,4 @@ Even with good intentions, certain patterns consistently lead to poor results. H
 
 ---
 
-**For role-specific prompt templates and concrete examples** (e.g. status updates, user stories, test cases, runbooks), see your role's appendix in the [Curriculum Overview](00-Curriculum-Overview.md#role-specific-appendices).
+**For role-specific prompt templates and concrete examples** (e.g. status updates, user stories, test cases, runbooks), continue into the role-specific guides in this folder such as `17-AI-for-Dev-Managers.md`, `18-AI-for-Developers.md`, `19-AI-for-QA-and-Testing.md`, and `20-AI-for-DevOps.md`.

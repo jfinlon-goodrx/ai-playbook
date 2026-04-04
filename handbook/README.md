@@ -62,7 +62,7 @@ Use these when you need to choose tools, build repeatable workflows, or connect 
 
 - `../local-private-ai/README.md`
 - `../local-private-ai/Internal Knowledge and RAG/Corporate-Intranet-LLM.md`
-- `../local-private-ai/Internal Knowledge and RAG/MySty-RAG.md`
+- `../local-private-ai/Internal Knowledge and RAG/MySty-RAG.md` for a concrete stack-specific example
 - `../local-private-ai/Workflow Prompts/AI-Onboarding-Prompts.md`
 
 Use these when privacy, data residency, cost control, or internal enablement make local or private AI important.

@@ -47,7 +47,7 @@ Two weeks later, a security review finds the endpoint doesn't check authorizatio
 
 **What happens:** You prompt "add authentication to this endpoint." The AI adds `[Authorize]`. You assume it's secure. But it didn't check that the user can only access *their own* data, didn't add audit logging, and the error message includes the patient's name.
 
-**Fix:** For security-sensitive code, use the specific security prompts from `prompts/by-task/security-audit.md`. Never assume the AI "knows" your security requirements — state them explicitly every time.
+**Fix:** For security-sensitive code, use the specific security prompts from `prompts/by-task/review/security-audit.md`. Never assume the AI "knows" your security requirements — state them explicitly every time.
 
 ## Mistake 6: Pasting PHI into Prompts
 

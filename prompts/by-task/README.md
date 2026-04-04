@@ -7,6 +7,7 @@ This folder contains copy-paste prompts organized by functional area.
 - `dotnet/`: feature delivery, implementation planning, and backend-focused work for .NET teams.
 - `frontend/`: React and Blazor component work for teams with UI responsibilities.
 - `atlassian/`: Jira and Confluence workflows for story shaping, handoff, and documentation.
+- `documentation/`: repo docs, runbooks, and architecture-documentation prompts.
 - `qa/`: test planning, automation generation, defect analysis, and regression planning.
 - `review/`: PR review, security review, and description-writing prompts.
 - `ci-cd/`: Azure Pipelines, GitHub Actions, and deployment automation prompts.
@@ -16,6 +17,7 @@ This folder contains copy-paste prompts organized by functional area.
 
 - Newer team members: `../../getting-started/05-first-week-with-ai.md`
 - QA acceleration: `qa/test-plan-from-story.md` and `qa/bug-to-regression-test.md`
+- Safer review: `review/code-review-assist.md` and `review/security-audit.md`
 - Pipeline speed: `ci-cd/pipeline-failure-triage.md`
 - Production response: `ci-cd/production-incident-triage.md`
 - Safer team handoff: `atlassian/jira-story-to-delivery-plan.md`
