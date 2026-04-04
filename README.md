@@ -2,14 +2,17 @@
 
 **Repository:** [github.com/jfinlon-goodrx/ai-playbook](https://github.com/jfinlon-goodrx/ai-playbook)
 
-A shared library of prompts, patterns, and guides for AI-assisted development. Built for a .NET/C#/MSSQL team using Cursor, GitHub, Azure DevOps, Jira, and Confluence.
+A shared library of prompts, patterns, guides, and adoption material for AI-assisted development. Built for a .NET/C#/MSSQL team using Cursor, GitHub, Azure DevOps, Jira, and Confluence.
 
 ## How to Use This
 
 1. **New to AI-assisted development?** Start with `getting-started/` — install your tools, learn the basics, build your first feature with AI.
 2. **Need a prompt for a specific task?** Browse `prompts/by-task/` — copy the prompt, adapt it to your story, paste it into Cursor.
-3. **Want to see how experienced developers use AI?** Read `case-studies/` — real examples from our codebase.
-4. **Setting up a new repo for AI?** Grab a `.cursorrules` file from `cursorrules/` — this is the single most important thing you can do to improve AI output quality.
+3. **Rolling AI out to a team?** Start with `Agile-AI/`, `quick-starts/`, and `handbook/`.
+4. **Need a curated learning track?** Read `0-to-60-ai/` for the practical subset of the larger AI curriculum.
+5. **Want to see how experienced developers use AI?** Read `case-studies/` — real examples from our codebase.
+6. **Setting up a new repo for AI?** Grab a `.cursorrules` file from `cursorrules/` — this is the single most important thing you can do to improve AI output quality.
+7. **Need a reusable workflow?** Browse `skills/` — these are portable skill definitions for recurring delivery tasks.
 
 ## Quick Start (5 minutes)
 
@@ -31,20 +34,58 @@ Include a unit test.
 
 ```
 ai-playbook/
+├── Agile-AI/                 # AI-native delivery and adoption guidance
+├── 0-to-60-ai/               # Curated practical education subset
+├── handbook/                 # Higher-level map and production guidance
+├── quick-starts/             # Fast practical team adoption guides
+├── developer-workflow/       # Day-to-day engineering workflow help
+├── guides-by-platform/       # Tool-specific guides
+├── local-private-ai/         # Private AI, knowledge, and onboarding workflows
 ├── getting-started/          # Setup guides and first steps
 ├── prompts/
-│   ├── by-task/              # Prompts organized by development task
+│   ├── by-task/              # Prompts organized by functional area and task
 │   └── patterns/             # Reusable prompt patterns for complex work
+├── skills/                   # Portable workflow skills for recurring team tasks
 ├── cursorrules/              # .cursorrules files for different project types
 ├── case-studies/             # Real examples of AI-assisted development
 └── anti-patterns/            # What to avoid and how to recover
 ```
+
+## Prompt Areas
+
+- `prompts/by-task/dotnet/` — implementation planning and .NET feature delivery.
+- `prompts/by-task/frontend/` — React and Blazor component work.
+- `prompts/by-task/atlassian/` — Jira and Confluence workflows.
+- `prompts/by-task/qa/` — test planning, automation, and regression work.
+- `prompts/by-task/review/` — review, security, and PR-quality prompts.
+- `prompts/by-task/ci-cd/` — Azure Pipelines and GitHub Actions support.
+- `prompts/by-task/environments/` — ephemeral and preview environment planning.
+
+## Skills
+
+The `skills/` folder fills a gap in the original playbook: repeatable team workflows that are too structured for a one-off prompt but lighter than full project rules.
+
+## Best Team Wins
+
+If you want the highest-value starting points for a team:
+
+- Delivery model change: `Agile-AI/README.md`
+- Practical team rollout: `quick-starts/01-AI-Assisted-Engineering-Starter-Kit.md`
+- Manager/developer/QA/DevOps onboarding: `0-to-60-ai/README.md`
+- Faster QA feedback: `prompts/by-task/qa/test-plan-from-story.md`
+- Regression discipline: `prompts/by-task/qa/bug-to-regression-test.md`
+- Flaky test cleanup: `prompts/by-task/qa/flaky-test-triage.md`
+- Faster pipeline recovery: `prompts/by-task/ci-cd/pipeline-failure-triage.md`
+- Better incident response: `prompts/by-task/ci-cd/production-incident-triage.md`
+- Confidence-building onboarding: `getting-started/05-first-week-with-ai.md`
+- Reusable team workflow skills: `skills/README.md`
 
 ## Contributing
 
 Add your prompts and case studies via PR. Use the templates in each folder. The most valuable contributions are:
 
 - **Prompts that worked** on our actual codebase (not generic examples)
+- **Skills that encode repeatable workflows** the team wants to reuse
 - **Case studies** showing before/after timing ("I built X in Y hours using this approach")
 - **Anti-patterns** you discovered the hard way
 
