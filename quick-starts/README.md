@@ -2,7 +2,7 @@
 
 This section is for fast practical adoption. It is intentionally biased toward “what should I do this week?” rather than “how does every part of AI work under the hood?”
 
-The default audience is a corporate dotnet/Azure team that wants useful AI adoption across engineering, QA, product, and management without turning the rollout into a vague change initiative.
+The default audience is an Agile delivery team that wants useful AI adoption across engineering, QA, product, platform, and management without turning the rollout into a vague change initiative.
 
 ## Best Entry Points
 
@@ -11,6 +11,19 @@ The default audience is a corporate dotnet/Azure team that wants useful AI adopt
 - `01-AI-Assisted-Engineering-Starter-Kit.md`
 
 Use this page if you want the shortest path from curiosity to a repeatable, team-usable AI workflow.
+
+## Role-Based Starts
+
+- `developer-starter.md`
+- `enterprise-ai-platform-starter.md`
+- `frontend-ui-starter.md`
+- `qa-starter.md`
+- `devops-platform-starter.md`
+- `tech-lead-starter.md`
+- `manager-starter.md`
+- `product-delivery-starter.md`
+
+Use these when you want a role-specific or workstream-specific entry point instead of a generic repo tour.
 
 ### Day 1: Get Working
 
@@ -55,6 +68,13 @@ Use this page if you want the shortest path from curiosity to a repeatable, team
 2. Pilot one showcase/demo rhythm.
 3. Pair early adopters with AI-curious teammates.
 4. Measure cycle time, review latency, and escaped defects.
+
+### For QA And Platform Teams
+
+1. Pick one repeatable workflow with high toil.
+2. Standardize prompts, inputs, and expected outputs.
+3. Add review and verification checklists.
+4. Save the successful pattern back into the repo.
 
 ## Prompt and Pattern Library
 

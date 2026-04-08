@@ -1,70 +1,146 @@
-# AI Development Playbook
+# AI Engineering Playbook
 
 **Repository:** [github.com/jfinlon-goodrx/ai-playbook](https://github.com/jfinlon-goodrx/ai-playbook)
 
-A shared library of prompts, patterns, guides, and adoption material for AI-assisted development. Built for a .NET/C#/MSSQL team using Cursor, GitHub, Azure DevOps, Jira, and Confluence.
+A shared library of prompts, patterns, guides, rules, and operating-model material for AI-assisted software delivery.
 
-## How to Use This
+This repo is for Agile delivery teams, not just individual developers. It is intended to help:
 
-1. **New to AI-assisted development?** Start with `getting-started/` — install your tools, learn the basics, build your first feature with AI.
-2. **Need a prompt for a specific task?** Browse `prompts/by-task/` — copy the prompt, adapt it to your story, paste it into Cursor.
-3. **Rolling AI out to a team?** Start with `Agile-AI/`, `quick-starts/`, and `handbook/`.
-4. **Need a curated learning track?** Read `0-to-60-ai/` for the practical subset of the larger AI curriculum.
-5. **Want to see how experienced developers use AI?** Read `case-studies/` — real examples from our codebase.
-6. **Setting up a new repo for AI?** Grab a `.cursorrules` file from `cursorrules/` — this is the single most important thing you can do to improve AI output quality.
-7. **Need a reusable workflow?** Browse `skills/` — these are portable skill definitions for recurring delivery tasks.
+- developers
+- QA and test automation engineers
+- DevOps and platform engineers
+- tech leads and architects
+- engineering managers
+- product and delivery partners
+
+The repo started with a strong .NET and Azure bias. It is now being expanded to stay useful for .NET, Python, and Go teams.
+
+## Start Here
+
+### If you are new to AI-assisted development
+
+Start with:
+
+- `getting-started/`
+- `quick-starts/README.md`
+- `0-to-60-ai/README.md`
+
+### If you need a task workflow today
+
+Start with:
+
+- `prompts/by-task/README.md`
+- `prompts/patterns/`
+- `skills/README.md`
+
+### If you are leading team adoption
+
+Start with:
+
+- `Agile-AI/README.md`
+- `handbook/README.md`
+- `handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md`
+- `REPO-ENHANCEMENT-PLAN.md`
+
+### If you are setting up agent or editor context
+
+Start with:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `repo-context.yaml`
+- `.cursor/rules/`
+- `cursorrules/`
+
+## Entry Points By Role
+
+- Developers: `quick-starts/developer-starter.md`
+- Frontend and UI: `quick-starts/frontend-ui-starter.md`
+- QA and test automation: `quick-starts/qa-starter.md`
+- DevOps and platform: `quick-starts/devops-platform-starter.md`
+- Tech leads and architects: `quick-starts/tech-lead-starter.md`
+- Engineering managers: `quick-starts/manager-starter.md`
+- Product and delivery: `quick-starts/product-delivery-starter.md`
+
+## Entry Points By Stack
+
+- .NET: `prompts/by-task/backend/new-api-endpoint.dotnet.md`, `prompts/by-task/backend/story-to-vertical-slice.dotnet.md`, `prompts/by-task/backend/database-migration.dotnet.md`, `cursorrules/dotnet-api.cursorrules`
+- Python: `prompts/by-task/backend/new-api-endpoint.python.md`, `prompts/by-task/backend/story-to-vertical-slice.python.md`, `prompts/by-task/backend/database-migration.python.md`, `prompts/by-task/qa/test-generation.python.md`
+- Go: `prompts/by-task/backend/new-api-endpoint.go.md`, `prompts/by-task/backend/story-to-vertical-slice.go.md`, `prompts/by-task/backend/database-migration.go.md`, `prompts/by-task/qa/test-generation.go.md`
 
 ## Quick Start (5 minutes)
 
-If you're in a hurry and just want to try one thing:
+If you want one fast, concrete first win:
 
-1. Copy `cursorrules/dotnet-api.cursorrules` into the root of your .NET project as `.cursorrules`
-2. Open the project in Cursor
-3. Open Composer (Ctrl+Shift+I) and paste this:
+1. Pick the project rules closest to your stack from `cursorrules/`.
+2. Add repo context using `.cursorrules`, `CLAUDE.md`, or `.cursor/rules/*.mdc`.
+3. Open the closest workflow prompt in `prompts/by-task/`.
+4. Point the assistant at real files in your repo.
+5. Ask for a reviewable artifact, not a magic solution.
 
+Example starter prompt:
+
+```text
+Read the project rules and the closest existing implementation pattern first.
+
+Then add a new GET /api/health endpoint that returns:
+{
+  "status": "ok",
+  "timestamp": "<utc now>"
+}
+
+Match the repo's existing architecture, validation, error handling, and test style.
+Include tests and call out any assumptions before implementation.
 ```
-Read the .cursorrules file, then read the Program.cs and any existing controllers.
-Add a new API endpoint: GET /api/health that returns { "status": "ok", "timestamp": "<utc now>" }.
-Include a unit test.
-```
 
-4. Watch what happens. Then come back and read the rest of this playbook.
+## Repository Shape
 
-## Structure
-
-```
+```text
 ai-playbook/
 ├── Agile-AI/                 # AI-native delivery and adoption guidance
 ├── 0-to-60-ai/               # Curated practical education subset
-├── handbook/                 # Higher-level map and production guidance
-├── quick-starts/             # Fast practical team adoption guides
+├── handbook/                 # Canonical maps, quality, and structure guidance
+├── quick-starts/             # Role-based and fast-start guides
 ├── developer-workflow/       # Day-to-day engineering workflow help
-├── guides-by-platform/       # Tool-specific guides
-├── local-private-ai/         # Private AI, knowledge, and onboarding workflows
+├── guides-by-platform/       # Editor, tool, and integration guidance
+├── local-private-ai/         # Private AI and internal knowledge workflows
 ├── getting-started/          # Setup guides and first steps
 ├── prompts/
-│   ├── by-task/              # Prompts organized by functional area and task
+│   ├── by-task/              # Task workflows and stack variants
 │   └── patterns/             # Reusable prompt patterns for complex work
-├── skills/                   # Portable workflow skills for recurring team tasks
-├── cursorrules/              # .cursorrules files for different project types
+├── skills/                   # Portable workflow skills for recurring tasks
+├── cursorrules/              # Reusable `.cursorrules` examples
+├── .cursor/rules/            # Cursor rule files for this repo itself
 ├── case-studies/             # Real examples of AI-assisted development
-└── anti-patterns/            # What to avoid and how to recover
+├── anti-patterns/            # What to avoid and how to recover
+├── AGENTS.md                 # Repo guidance for coding agents
+├── CLAUDE.md                 # Repo guidance for Claude-style hosts
+└── repo-context.yaml         # Machine-readable repo context
 ```
 
 ## Prompt Areas
 
-- `prompts/by-task/dotnet/` — implementation planning and .NET feature delivery.
-- `prompts/by-task/frontend/` — React and Blazor component work.
-- `prompts/by-task/atlassian/` — Jira and Confluence workflows.
-- `prompts/by-task/documentation/` — architecture docs, runbooks, and repo documentation prompts.
-- `prompts/by-task/qa/` — test planning, automation, and regression work.
-- `prompts/by-task/review/` — review, security, and PR-quality prompts.
-- `prompts/by-task/ci-cd/` — Azure Pipelines and GitHub Actions support.
-- `prompts/by-task/environments/` — ephemeral and preview environment planning.
+- `prompts/by-task/backend/` for backend workflows with shared plus language-specific variants
+- `prompts/by-task/frontend/` for React, Blazor, Razor, and server-rendered UI work
+- `guides-by-platform/UI/` for Figma workflow, stack choices, and frontend process guidance
+- `prompts/by-task/atlassian/` for Jira and Confluence workflows
+- `handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md` for Gleen, Jira, Confluence, GitHub, MCP, and end-to-end AI delivery design
+- `prompts/by-task/documentation/` for repo docs, runbooks, and architecture writing
+- `prompts/by-task/qa/` for test planning, automation, and regression work
+- `prompts/by-task/review/` for review, security, and PR-quality prompts
+- `prompts/by-task/ci-cd/` for pipelines, deployment workflows, and incident support
+- `prompts/by-task/environments/` for ephemeral and preview environment planning
 
-## Skills
+## Language Variant Convention
 
-The `skills/` folder fills a gap in the original playbook: repeatable team workflows that are too structured for a one-off prompt but lighter than full project rules.
+When a workflow applies across stacks, this repo now uses:
+
+- `topic.md` for the shared workflow
+- `topic.dotnet.md` for .NET examples
+- `topic.python.md` for Python examples
+- `topic.go.md` for Go examples
+
+This keeps the shared reasoning in one place while letting code and tool examples stay idiomatic.
 
 ## Best Team Wins
 
@@ -72,27 +148,35 @@ If you want the highest-value starting points for a team:
 
 - Delivery model change: `Agile-AI/README.md`
 - Practical team rollout: `quick-starts/01-AI-Assisted-Engineering-Starter-Kit.md`
-- Manager/developer/QA/DevOps onboarding: `0-to-60-ai/README.md`
+- Role-based onboarding: `0-to-60-ai/README.md`
+- Enterprise AI delivery platform: `handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md`
+- Cross-platform backend workflows: `prompts/by-task/backend/README.md`
+- UI implementation and design handoff: `quick-starts/frontend-ui-starter.md`
 - Faster QA feedback: `prompts/by-task/qa/test-plan-from-story.md`
-- Regression discipline: `prompts/by-task/qa/bug-to-regression-test.md`
-- Flaky test cleanup: `prompts/by-task/qa/flaky-test-triage.md`
-- Faster pipeline recovery: `prompts/by-task/ci-cd/pipeline-failure-triage.md`
+- Pipeline recovery: `prompts/by-task/ci-cd/pipeline-failure-triage.md`
 - Better incident response: `prompts/by-task/ci-cd/production-incident-triage.md`
-- Confidence-building onboarding: `getting-started/05-first-week-with-ai.md`
 - Reusable team workflow skills: `skills/README.md`
 
 ## Contributing
 
-Add your prompts and case studies via PR. Use the templates in each folder. The most valuable contributions are:
+The most valuable contributions are:
 
-- **Prompts that worked** on our actual codebase (not generic examples)
-- **Skills that encode repeatable workflows** the team wants to reuse
-- **Case studies** showing before/after timing ("I built X in Y hours using this approach")
-- **Anti-patterns** you discovered the hard way
+- prompts that worked on a real codebase
+- skills that encode repeatable workflows
+- case studies showing what changed in speed or quality
+- cross-language variants for shared workflows
+- anti-patterns and recovery patterns learned the hard way
+
+Before adding a new file, check:
+
+1. Is there already a canonical page for this idea?
+2. Is this cross-platform or stack-specific?
+3. Should it be a shared file plus `.dotnet`, `.python`, and `.go` companions?
+4. What role should discover this first?
 
 ## Ground Rules
 
-1. **Never paste secrets, API keys, or PII into prompts.** The AI tool may send your prompt to a cloud API.
-2. **Always review AI-generated code before committing.** The AI is a fast junior developer with no judgment.
-3. **Attribute AI assistance in your PR descriptions.** Not because it's required, but because it helps the team learn what works.
-4. **Share what works.** If a prompt saved you hours, add it here.
+1. Never paste secrets, API keys, or PII into prompts.
+2. Always review AI-generated code before committing.
+3. Keep stack-specific advice clearly labeled.
+4. Share what worked so the next teammate starts faster.

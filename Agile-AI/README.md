@@ -12,6 +12,7 @@ The key idea is simple: AI does not remove the need for Agile discipline, but it
 4. `02-AI-Native-Agile-Operating-Model.md`
 5. `AI-Adoption-Playbook-From-Kanban-to-AI-Driven-Development.md`
 6. `03-AI-Native-Agile-Team-Playbook.md`
+7. `04-AI-Native-Adoption-Roadmap.md`
 
 ## Core Model
 
@@ -55,3 +56,7 @@ Use this section when:
 - leadership wants to know why the old process feels slower than the developers,
 - QA needs a stronger role in a faster delivery loop,
 - or you are building a transformation roadmap for an AI-enabled engineering organization.
+
+## Best Next Step For Execution
+
+If the team already agrees with the principles and needs a rollout sequence, go straight to `04-AI-Native-Adoption-Roadmap.md`.

@@ -11,9 +11,10 @@ If you are new to the material, read in this order:
 1. `../Agile-AI/README.md`
 2. `../0-to-60-ai/README.md`
 3. `../quick-starts/README.md`
-4. `../developer-workflow/README.md`
-5. `../guides-by-platform/README.md`
-6. `../local-private-ai/README.md`
+4. `04-End-to-End-Enterprise-AI-Delivery-Platform.md`
+5. `../developer-workflow/README.md`
+6. `../guides-by-platform/README.md`
+7. `../local-private-ai/README.md`
 
 ## Core Sections
 
@@ -55,6 +56,7 @@ Use these when you want to get someone productive today, not after a long theory
 - `../guides-by-platform/Coding Tools/Claude-Code-Guide.md`
 - `../0-to-60-ai/10-Skills-And-Tools.md`
 - `../0-to-60-ai/11-MCP-And-Integrations.md`
+- `04-End-to-End-Enterprise-AI-Delivery-Platform.md`
 
 Use these when you need to choose tools, build repeatable workflows, or connect AI to real systems safely.
 

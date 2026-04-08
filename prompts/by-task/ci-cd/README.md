@@ -5,7 +5,10 @@ This folder groups prompts for pipelines, workflow automation, incident response
 ## Start Here
 
 - `pipeline-failure-triage.md`
-- `azure-pipelines-dotnet-service.md`
+- `service-pipeline.md`
+- `service-pipeline.dotnet.md`
+- `service-pipeline.python.md`
+- `service-pipeline.go.md`
 - `github-actions-pr-automation.md`
 - `production-incident-triage.md`
 

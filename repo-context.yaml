@@ -1,0 +1,58 @@
+name: ai-playbook
+mission: >
+  Shared playbook for AI-assisted software delivery across an Agile SDLC team.
+  The repo combines onboarding, reusable workflows, prompts, skills, operating
+  model guidance, and guardrails for practical enterprise use.
+audiences:
+  - developer
+  - qa
+  - devops
+  - tech-lead
+  - architect
+  - engineering-manager
+  - product
+  - delivery
+supported_languages:
+  - dotnet
+  - python
+  - go
+enterprise_systems:
+  - Gleen
+  - Jira
+  - Confluence
+  - GitHub
+  - MCP
+  - APIs
+principles:
+  - Keep one canonical explanation for shared concepts.
+  - Add language-specific companion files only when implementation differs.
+  - Prefer practical, reviewable assets over generic theory.
+  - Keep safety, testing, review, and observability near acceleration workflows.
+section_map:
+  handbook: canonical concepts, maps, and quality guidance
+  Agile-AI: AI-native delivery model and team transformation
+  0-to-60-ai: learning path and role-oriented education
+  quick-starts: fast role-based and task-based entry points
+  prompts: prompt libraries and reusable patterns
+  skills: procedural workflow definitions
+  guides-by-platform: editor, tool, and integration guidance
+  cursorrules: reusable project rule examples
+  local-private-ai: private AI and internal-knowledge workflows
+  anti-patterns: failure modes and recovery patterns
+language_variant_naming:
+  canonical: topic.md
+  dotnet: topic.dotnet.md
+  python: topic.python.md
+  go: topic.go.md
+priority_workflows:
+  - new-api-endpoint
+  - story-to-vertical-slice
+  - database-migration
+  - service-pipeline
+  - test-generation
+foundation_files:
+  - AGENTS.md
+  - CLAUDE.md
+  - repo-context.yaml
+  - REPO-ENHANCEMENT-PLAN.md
+  - .cursor/rules

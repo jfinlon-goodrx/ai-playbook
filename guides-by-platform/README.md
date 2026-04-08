@@ -12,6 +12,7 @@ Use this page before diving into individual tool docs if you want the big pictur
 
 - `Coding Tools/Cursor-Guide.md`
 - `Coding Tools/Claude-Code-Guide.md`
+- `UI/README.md`
 - `../0-to-60-ai/18-AI-for-Developers.md`
 
 These are the best starting points for engineers doing real implementation work.
@@ -19,6 +20,16 @@ These are the best starting points for engineers doing real implementation work.
 ## Scope In This Repo
 
 This repo currently carries the coding-tool guidance most directly useful for daily engineering work. If you are standardizing team usage, start with Cursor or Claude Code and pair those with the prompt, skill, and MCP material below.
+
+## Foundation Context Files
+
+Before standardizing team usage, review the repo-level context assets:
+
+- `../AGENTS.md`
+- `../CLAUDE.md`
+- `../repo-context.yaml`
+- `../.cursor/rules/`
+- `../cursorrules/`
 
 ## Skills, Rules, and Agent Guidance
 

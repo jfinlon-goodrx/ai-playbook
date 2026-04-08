@@ -4,7 +4,8 @@ This folder contains copy-paste prompts organized by functional area.
 
 ## Areas
 
-- `dotnet/`: feature delivery, implementation planning, and backend-focused work for .NET teams.
+- `backend/`: shared backend workflows with `.dotnet`, `.python`, and `.go` companions where needed.
+- `dotnet/`: legacy entry points and .NET-specific pointers kept for compatibility.
 - `frontend/`: React and Blazor component work for teams with UI responsibilities.
 - `atlassian/`: Jira and Confluence workflows for story shaping, handoff, and documentation.
 - `documentation/`: repo docs, runbooks, and architecture-documentation prompts.
@@ -16,6 +17,7 @@ This folder contains copy-paste prompts organized by functional area.
 ## Best Starting Points
 
 - Newer team members: `../../getting-started/05-first-week-with-ai.md`
+- Cross-platform backend work: `backend/README.md`
 - QA acceleration: `qa/test-plan-from-story.md` and `qa/bug-to-regression-test.md`
 - Safer review: `review/code-review-assist.md` and `review/security-audit.md`
 - Pipeline speed: `ci-cd/pipeline-failure-triage.md`
@@ -28,3 +30,14 @@ This folder contains copy-paste prompts organized by functional area.
 2. Replace placeholders with your repo, story, environment, and tool details.
 3. Point the AI at real project files so it matches your conventions.
 4. Review the result like any other engineering artifact before using it.
+
+## Naming Pattern
+
+When a workflow exists for multiple stacks, the repo now prefers:
+
+- `topic.md` for the shared workflow
+- `topic.dotnet.md`
+- `topic.python.md`
+- `topic.go.md`
+
+This keeps the shared task framing in one place while letting implementation examples stay idiomatic.

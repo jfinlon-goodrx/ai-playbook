@@ -1,34 +1,40 @@
 # Task: Test Generation
 
 ## When to Use
-You need unit tests, integration tests, or both for existing or new code. AI excels at generating comprehensive test cases — it's one of the highest-ROI uses of AI-assisted development.
+You need unit tests, integration tests, or both for existing or new code. AI is especially useful for expanding scenario coverage, drafting test cases, and spotting obvious gaps in existing suites.
+
+## Use With
+
+- `.dotnet`: `test-generation.dotnet.md`
+- `.python`: `test-generation.python.md`
+- `.go`: `test-generation.go.md`
 
 ## Prerequisites
 - [ ] The code to test exists (or you're doing test-first development)
-- [ ] Test project is set up with xUnit and Moq
-- [ ] Existing tests available for pattern reference
+- [ ] The test stack is already present in the repo
+- [ ] Existing tests are available for pattern reference
 
-## The Prompt: Unit Tests for a Service
+## The Prompt: Unit Tests for Existing Code
 
 ```
-@Services/[ServiceName].cs
-@Services/I[ServiceName].cs
-@Tests/[ExistingTestFile].cs (for pattern reference)
+@[SourceFile]
+@[ExistingTestFile] (for pattern reference)
+@[ProjectContextOrRulesFile]
 
-Write comprehensive unit tests for [ServiceName] using xUnit and Moq.
+Write comprehensive tests for this code using the repo's current test stack and conventions.
 
-For each public method, generate tests for:
-1. Happy path — valid input produces expected output
-2. Validation failures — invalid inputs are rejected with appropriate errors
-3. Not found — referenced entities don't exist
-4. Authorization — user doesn't have permission (if applicable)
-5. Edge cases — nulls, empty collections, boundary values, concurrent access
+For each public behavior, generate tests for:
+1. happy path
+2. validation failures
+3. not found or dependency failure cases
+4. authorization or permission failures if applicable
+5. edge cases and boundary values
 
 Follow the patterns in [ExistingTestFile] for:
 - Test class structure and naming
-- Mock setup conventions
-- Assertion style
-- Test data builders (if used)
+- setup and fixture style
+- assertion style
+- builders or factories if used
 
 Naming convention: MethodName_Scenario_ExpectedResult
 
@@ -36,65 +42,22 @@ Do not test private methods. Do not test trivial getters/setters.
 Focus on business logic and error handling.
 ```
 
-## Example: Testing Prescription Refill Service
-
-```
-@Services/PrescriptionRefillService.cs
-@Services/IPrescriptionRefillService.cs
-@Repositories/IPrescriptionRepository.cs
-@Tests/Services/PrescriptionServiceTests.cs
-
-Write unit tests for PrescriptionRefillService. This service handles
-prescription refill requests in a healthcare application.
-
-Test each public method. For SubmitRefillRequest, specifically test:
-
-Happy path:
-- Valid refill request for an active prescription with remaining refills → returns success with refill ID
-- Request with no requestedQuantity → defaults to original prescription quantity
-
-Validation:
-- Null or empty pharmacyId → returns validation error
-- Notes exceeding 500 characters → returns validation error
-- RequestedQuantity <= 0 → returns validation error
-
-Business rules:
-- Prescription not found → returns NotFound error
-- Prescription expired → returns error "Prescription has expired"
-- No remaining refills → returns error "No refills remaining"
-- Prescription on hold → returns error "Prescription is on hold, contact prescriber"
-- Duplicate pending refill request → returns error "A refill request is already pending"
-
-Authorization:
-- Patient requesting refill for someone else's prescription → returns Forbidden
-- PharmacyStaff requesting for a prescription not assigned to their pharmacy → returns Forbidden
-
-Mock setup:
-- Use Moq for IPrescriptionRepository, IAuditLogger, ICurrentUserService
-- Use a builder pattern for test Prescription objects if one exists
-
-IMPORTANT: Do not use real patient data in test fixtures. Use clearly fake data:
-- Patient names: "Test Patient Alpha", "Test Patient Beta"
-- Prescription IDs: use deterministic GUIDs
-- Drug names: "TestDrug-100mg", "TestDrug-200mg"
-```
-
 ## The Prompt: Integration Tests
 
 ```
-@Tests/Integration/[ExistingIntegrationTest].cs
-@Data/ApplicationDbContext.cs
+@[ExistingIntegrationTest]
+@[RelevantAppOrRouterFile]
+@[RelevantDataSetupFile]
 
-Write integration tests for the [Feature] endpoints.
+Write integration tests for the [Feature] endpoints or end-to-end service flow.
 
-Use the WebApplicationFactory pattern from [ExistingIntegrationTest].
+Use the integration-test pattern from [ExistingIntegrationTest].
 Tests should:
-1. Use an in-memory database (or test database if the project uses one)
-2. Seed necessary reference data before each test
-3. Test the full HTTP request/response cycle
-4. Verify database state after mutations
-5. Verify response headers (status code, content type)
-6. Test authentication/authorization (call without token, call with wrong role)
+1. Seed or arrange necessary reference data
+2. Test the full request/response or service flow
+3. Verify resulting state after mutations
+4. Verify status codes or equivalent outcome signals
+5. Test authentication and authorization where applicable
 
 For each endpoint:
 - Happy path with valid auth
@@ -153,8 +116,8 @@ Generate additional tests to close any gaps you find.
 ```
 
 ## Tips
-- AI-generated tests are one of the safest uses of AI because **the tests verify themselves** — if the test is wrong, it either fails or you catch it in review
-- Always run the tests after generation — the AI sometimes references methods that don't exist or uses wrong signatures
-- For healthcare code, verify that test data doesn't contain real PHI patterns (real drug NDC codes, real insurance BIN numbers, etc.)
-- If the AI generates 30+ tests for a simple service, it's probably testing implementation details. Ask it to focus on behavior, not implementation
-- Request test data builders early — they save massive time on future tests
+- AI-generated tests are one of the safer uses of AI because test failures reveal many bad assumptions quickly.
+- Always run the tests after generation.
+- Keep test data obviously fake for regulated or sensitive domains.
+- If the assistant generates too many tests, narrow it back to behavior, risk, and edge cases.
+- Use the language-specific companion files when the test stack matters.

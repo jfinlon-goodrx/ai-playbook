@@ -6,6 +6,9 @@ This folder groups prompts for test planning, automation generation, defect foll
 
 - `test-plan-from-story.md`
 - `test-generation.md`
+- `test-generation.dotnet.md`
+- `test-generation.python.md`
+- `test-generation.go.md`
 - `bug-to-regression-test.md`
 - `flaky-test-triage.md`
 

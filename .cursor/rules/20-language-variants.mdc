@@ -1,0 +1,22 @@
+---
+description: Cross-language naming and adaptation rules for workflow docs
+alwaysApply: true
+---
+
+When a workflow applies across multiple implementation stacks:
+
+1. Create a shared canonical file for the workflow.
+2. Add companion files only where code or tooling differs materially.
+3. Use this naming convention:
+   - `topic.md`
+   - `topic.dotnet.md`
+   - `topic.python.md`
+   - `topic.go.md`
+
+Do not mechanically translate examples from one language into another.
+
+Adapt to idiomatic ecosystem choices instead:
+
+- .NET: ASP.NET Core, xUnit, EF Core, Azure patterns when relevant
+- Python: FastAPI or Django-style conventions, pytest, Alembic or Django migrations
+- Go: idiomatic handlers, table-driven tests, explicit dependency wiring, SQL-first migrations where appropriate

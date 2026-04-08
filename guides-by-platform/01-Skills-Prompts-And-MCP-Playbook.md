@@ -69,6 +69,8 @@ If one layer is weak, the whole system degrades:
 Use:
 
 - `CLAUDE.md`,
+- `AGENTS.md`,
+- `repo-context.yaml`,
 - `.cursorrules`,
 - `.cursor/rules/*.mdc`,
 - architecture overviews,

@@ -1,0 +1,19 @@
+---
+description: Repo-wide mission and audience guidance for the AI playbook
+alwaysApply: true
+---
+
+This repository is a practical playbook for AI-assisted software delivery.
+
+Primary goals:
+
+- help an Agile SDLC team adopt AI safely and effectively
+- support developers, QA, DevOps, tech leads, managers, and delivery partners
+- stay useful for .NET, Python, and Go teams
+
+When editing or creating content:
+
+- preserve practical, reusable guidance
+- prefer clear navigation over clever restructuring
+- avoid framing stack-specific advice as universal
+- keep safety, testing, review, and delivery discipline close to every workflow

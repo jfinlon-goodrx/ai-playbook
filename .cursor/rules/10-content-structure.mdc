@@ -1,0 +1,23 @@
+---
+description: Structure and placement rules for docs added to the AI playbook
+alwaysApply: true
+---
+
+Use the existing section purposes intentionally:
+
+- `handbook/` for canonical concepts, maps, and organizational guidance
+- `quick-starts/` for fast entry points by role or need
+- `prompts/` for reusable prompt assets and prompt patterns
+- `skills/` for repeatable procedural workflows
+- `guides-by-platform/` for editor and tool guidance
+- `cursorrules/` for reusable project rule examples
+
+Before adding a file, decide whether it is:
+
+- a concept
+- a workflow
+- a prompt
+- a role guide
+- a stack-specific example
+
+Prefer cross-linking to an existing canonical page over creating a parallel explanation in a new location.
