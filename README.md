@@ -123,6 +123,8 @@ ai-playbook/
 - `prompts/by-task/backend/` for backend workflows with shared plus language-specific variants
 - `prompts/by-task/frontend/` for React, Blazor, Razor, and server-rendered UI work
 - `guides-by-platform/UI/` for Figma workflow, stack choices, and frontend process guidance
+- `guides-by-platform/Glean-Guide.md` for GoodRx Glean usage, APIs, future MCP rollout, and enterprise grounding patterns
+- `guides-by-platform/Enterprise-MCP-Baseline.md` for role-based MCP standards, current-vs-target state, and GoodRx rollout guidance
 - `prompts/by-task/atlassian/` for Jira and Confluence workflows
 - `handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md` for Gleen, Jira, Confluence, GitHub, MCP, and end-to-end AI delivery design
 - `prompts/by-task/documentation/` for repo docs, runbooks, and architecture writing
@@ -150,6 +152,8 @@ If you want the highest-value starting points for a team:
 - Practical team rollout: `quick-starts/01-AI-Assisted-Engineering-Starter-Kit.md`
 - Role-based onboarding: `0-to-60-ai/README.md`
 - Enterprise AI delivery platform: `handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md`
+- GoodRx Glean grounding guide: `guides-by-platform/Glean-Guide.md`
+- GoodRx MCP baseline and rollout: `guides-by-platform/Enterprise-MCP-Baseline.md`
 - Cross-platform backend workflows: `prompts/by-task/backend/README.md`
 - UI implementation and design handoff: `quick-starts/frontend-ui-starter.md`
 - Faster QA feedback: `prompts/by-task/qa/test-plan-from-story.md`

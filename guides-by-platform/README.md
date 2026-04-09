@@ -12,6 +12,9 @@ Use this page before diving into individual tool docs if you want the big pictur
 
 - `Coding Tools/Cursor-Guide.md`
 - `Coding Tools/Claude-Code-Guide.md`
+- `Enterprise-MCP-Baseline.md`
+- `Glean-Guide.md`
+- `Glean-API-vs-MCP-Decision-Guide.md`
 - `UI/README.md`
 - `../0-to-60-ai/18-AI-for-Developers.md`
 
@@ -57,6 +60,14 @@ Start with Cursor or Claude Code, then read the skills/rules material.
 ### If You Need An Integration Strategy
 
 Start with Skills, Tools, and MCP. Then decide whether the workflow needs built-in tools, MCP servers, browser automation, or internal APIs.
+
+### If You Need Enterprise Knowledge Grounding
+
+Start with `Glean-Guide.md`, then connect it to the enterprise platform and Atlassian workflow material.
+
+### If You Need A GoodRx MCP Standard
+
+Start with `Enterprise-MCP-Baseline.md`, then use `Glean-API-vs-MCP-Decision-Guide.md` for the Glean-specific integration choice.
 
 ### If You Need Team Standards
 

@@ -4,6 +4,9 @@
 
 This guide explains how to connect your internal knowledge system, work management tools, documentation, source control, and AI hosts into one delivery platform.
 
+For a Glean-specific implementation guide, use `../guides-by-platform/Glean-Guide.md`.
+For the GoodRx MCP standard and rollout baseline, use `../guides-by-platform/Enterprise-MCP-Baseline.md`.
+
 It is written for teams using:
 
 - Gleen as the corporate RAG or knowledge-search system
@@ -430,6 +433,9 @@ If you want the smallest useful version of this system, build this first:
 ## Related Reading
 
 - `../Agile-AI/04-AI-Native-Adoption-Roadmap.md`
+- `../guides-by-platform/Enterprise-MCP-Baseline.md`
+- `../guides-by-platform/Glean-Guide.md`
+- `../guides-by-platform/Glean-API-vs-MCP-Decision-Guide.md`
 - `../prompts/by-task/atlassian/jira-confluence-mcp.md`
 - `../prompts/by-task/atlassian/jira-story-to-delivery-plan.md`
 - `../guides-by-platform/01-Skills-Prompts-And-MCP-Playbook.md`

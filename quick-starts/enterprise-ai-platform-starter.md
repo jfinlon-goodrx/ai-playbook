@@ -6,7 +6,10 @@ Help a team connect Gleen, Jira, Confluence, GitHub, MCP, and repo-local AI work
 
 ## First Read
 
+- `../guides-by-platform/Enterprise-MCP-Baseline.md`
 - `../handbook/04-End-to-End-Enterprise-AI-Delivery-Platform.md`
+- `../guides-by-platform/Glean-Guide.md`
+- `../guides-by-platform/Glean-API-vs-MCP-Decision-Guide.md`
 - `../prompts/by-task/atlassian/end-to-end-ai-delivery-orchestration.md`
 - `../guides-by-platform/01-Skills-Prompts-And-MCP-Playbook.md`
 - `../Agile-AI/04-AI-Native-Adoption-Roadmap.md`
